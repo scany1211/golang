@@ -30,19 +30,19 @@ func main() {
 	fmt.Println("========================")
 	fmt.Printf("e has type: %T value: %v\n", e, e)
 	fmt.Println("========================")
-
-	x, ok := e.(testS)
+	//类型断言
+	x, ok := e.(testS) // x的类型是struct，
 	if ok == true {
 		fmt.Printf("x has type: %T, value: %v\n", x, x)
 		fmt.Println("========================")
 		x.add()
 	}
-	var l2 testI
+	var l2 testI // l2是接口
 	l2 = x
 	fmt.Printf("l2 has type: %T, value: %v\n", l2, l2)
 	l2.add()
 	fmt.Println("========================")
-
+	// 写法2: 类型断言+实现接口写法，支持空接口。该写法是写法1的简写方式
 	var l3 testI
 	l3 = e.(testI)
 	fmt.Printf("l3 has type: %T, value: %v\n", l3, l3)
